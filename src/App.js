@@ -1,23 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import UsersForm from './components/UsersForm/UsersForm';
+import UsersList from './components/UsersList/UsersList';
+import './style.css';
 
 function App() {
+
+  const [users, setUsers]= useState([])
+  const[usersSelected, setUsersSelected]= useState(null)
+
+
+  //------------Get Users-----------------
+
+  useEffect(()=>{
+    getUsers()
+  },[])
+
+  const getUsers=()=>{
+    axios.get("https://users-crud1.herokuapp.com/users/")
+    .then(res=>setUsers(res.data))
+  }
+
+  //------------Add Users-----------------
+
+  const addUsers=(user)=>{
+    axios.post("https://users-crud1.herokuapp.com/users/", user)
+    .then(()=>getUsers())
+  }
+
+  //------------Delete Users-----------------
+
+    const removeUsers=(id)=>{
+      axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+      .then(()=>getUsers())
+    }
+
+  //------------Select Users-----------------
+
+  const selectUsers=user=>setUsersSelected(user)
+
+  //------------Update Users-----------------
+  const updateUsers=(user)=>{
+    axios.put(`https://users-crud1.herokuapp.com/users/${usersSelected.id}/`,user)
+    .then(()=>{
+      getUsers()
+      setUsersSelected(null)
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <UsersForm addUsers={addUsers} usersSelected={usersSelected} updateUsers={updateUsers} />
+     <UsersList users={users} removeUsers={removeUsers} selectUsers={selectUsers}/>
     </div>
   );
 }
