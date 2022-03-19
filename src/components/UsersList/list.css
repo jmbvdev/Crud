@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.users-container{
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 100%;
+}
+
+.users-container button{
+  margin: 10px auto;
+  padding: 8px 20px  8px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: #eee;
+  border: none;
+  }
+  .add-btn{
+    background-color:#510186d7;
+    cursor: pointer;
+    height: 50px;
+  }
+  .add-btn:hover{
+    background-color:#7a05c9d7;
+  }
+  .user-card{
+      margin: 10px;
+      list-style: none;
+      text-decoration: none;
+      background-color: #3e3e3e;
+    border-radius: 20px;
+    box-shadow: 0 19px 38px rgba(17, 1, 77, 0.3), 0 15px 12px rgba(0, 5, 70, 0.22);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(229, 228, 231);
+}
+.user-card b{
+    color: rgb(175, 174, 177);
+}
+
+  
+  .user-card li{
+   margin: 10px; 
+}
+
+.container-btn{
+    display: flex;
+    justify-content: center;
+}
+.container-btn button{
+   background: none;
+   border: none;
+   color: rgb(147, 146, 150);
+   font-size: 1.5rem;
+   cursor: pointer;
+}
+
+.container-btn button:hover{
+    color: rgb(178, 178, 180);
+ }
+
+ @media only screen and (min-width: 768px) {
+     .users-container{
+         width: 100%;
+         height: 100vh;
+         flex-direction: row;
+     }
+     .users-container{
+       flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+       padding: 30px;
+      }
+      .users-container ul{
+       list-style: none;
+       display: grid;
+       grid-auto-flow: 1rem;
+       grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+       }
+  }

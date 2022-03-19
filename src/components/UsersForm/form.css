@@ -1,0 +1,72 @@
+.form-container{
+    position: relative;
+    width: 500px;
+    min-height: 100px;
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+}
+
+.form-top{
+    width: 100px;
+    background-color: #3e3e3e;
+    justify-content: space-between;
+    border-radius: 10px 10px 0px 0px;
+}
+.input-container input{
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 12px;
+    position: relative;
+    margin-top: 12px;
+    top: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.input-container input::placeholder{
+    position: absolute;
+    color: #65657b;
+    font-family: sans-serif;
+    bottom: 10px;
+}
+.upload-btn{
+    position: relative;
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: bolder;
+    top: 6rem;
+    left: 33%;
+    padding: 8px 20px  8px;
+    width: 100px;
+    border-radius: 10px;
+    color: #eee;
+    border: none;
+    background-color:#010c86d7;
+    cursor: pointer;
+}
+.upload-btn:hover{
+    background-color:#0517d8d7;
+}
+.close-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.close-btn i{
+    font-size: 1.5rem;
+    color: #65657b;
+} 
+
+.close-btn i:hover{
+    color: #909094;
+} 

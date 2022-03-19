@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../UsersForm/form.css"
 
-const UsersForm = ({addUsers, usersSelected, updateUsers}) => {
+const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
 
     const[firstName, setFirstName]= useState("")
     const [lastName, setLastName]= useState("")
@@ -44,54 +44,62 @@ const UsersForm = ({addUsers, usersSelected, updateUsers}) => {
     }
 
     return (
-        <div>
+        <div className='form-container'>
+            <div className='form-top'>
+                 <button onClick={()=>setShowForm(false)} className='close-btn'><i class="fa-solid fa-x"></i></button>
+            </div>
             <form onSubmit={submit}>
                 <div className='input-container'>
-                    <label htmlFor="firstName">First Name</label>
+                    <label htmlFor="firstName"></label>
                     <input
                     type="text" 
                     id='firstName'
+                    placeholder='first Name'
                     onChange={e=>setFirstName(e.target.value)}
                     value={firstName}
                     />
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="lastName">Last Name</label>
+                    <label htmlFor="lastName"></label>
                     <input
                     type="text" 
                     id='lastName'
+                    placeholder='last Name'
                     onChange={e=>setLastName(e.target.value)}
                     value={lastName}
                     />
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email"></label>
                     <input
                     type="text" 
                     id='email'
+                    placeholder='email'
                     onChange={e=>setEmail(e.target.value)}
                     value={email}
                     />
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password"></label>
                     <input
                     type="password" 
                     id='password'
+                    placeholder='password'
                     onChange={e=>setPassword(e.target.value)}
                     value={password}
                     />
                 </div>
                 <div className='input-container'>
-                    <label htmlFor="date">Birth Date</label>
+                    <label htmlFor="date"></label>
                     <input
                     type="date" 
                     id='date'
+                    placeholder='birthday'
                     onChange={e=>setDate(e.target.value)}
                     value={date}
                     />
                 </div>
-                <button>Upload</button>
+                <button className='upload-btn'>upload</button>
 
             </form>
            

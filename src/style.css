@@ -1,0 +1,28 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    height: 100vh;
+
+}
+.overlay{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.hide{
+    display: none;
+}

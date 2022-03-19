@@ -9,6 +9,7 @@ function App() {
 
   const [users, setUsers]= useState([])
   const[usersSelected, setUsersSelected]= useState(null)
+  const[showForm, setShowForm]=useState(false)
 
 
   //------------Get Users-----------------
@@ -51,8 +52,16 @@ function App() {
 
   return (
     <div className="App">
-     <UsersForm addUsers={addUsers} usersSelected={usersSelected} updateUsers={updateUsers} />
-     <UsersList users={users} removeUsers={removeUsers} selectUsers={selectUsers}/>
+    
+      
+      <div className={showForm?"overlay":"hide"}>
+       
+     
+        <UsersForm addUsers={addUsers} usersSelected={usersSelected} updateUsers={updateUsers} setShowForm={setShowForm} />
+      </div>
+
+
+     <UsersList users={users} removeUsers={removeUsers} selectUsers={selectUsers}  setShowForm={setShowForm} showForm={showForm}/>
     </div>
   );
 }
