@@ -8,6 +8,7 @@
     height: 500px;
     padding: 20px;
     width: 320px;
+    box-shadow: 0 39px 78px rgba(78, 37, 226, 0.3), 0 15px 22px rgba(3, 10, 214, 0.22);
 }
 
 .form-top{
