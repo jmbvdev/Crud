@@ -27,7 +27,10 @@ function App() {
 
   const addUsers=(user)=>{
     axios.post("https://users-crud1.herokuapp.com/users/", user)
-    .then(()=>getUsers())
+    .then(()=>{
+      getUsers()
+      setUsersSelected(null)
+    })
   }
 
   //------------Delete Users-----------------

@@ -14,8 +14,8 @@ const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
         } else{
             reset(defaultValues)
         }
-
-    },[usersSelected, reset])
+        
+    },[usersSelected, reset]) 
 
     const submit=user=>{
         reset(defaultValues)
