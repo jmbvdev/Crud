@@ -32,38 +32,22 @@
   }
   .user-card{
       margin: 10px;
-      margin-bottom: 20px;
-    
       list-style: none;
       text-decoration: none;
       background-color: #3e3e3e;
     border-radius: 20px;
     box-shadow: 0 19px 38px rgba(17, 1, 77, 0.3), 0 15px 12px rgba(0, 5, 70, 0.22);
-    padding: 30px 50px 20px 50px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: rgb(229, 228, 231);
-    transition: all 0.4s linear;
-}
-.user-card:hover{
-  transform: scale(0.9);
-  box-shadow: 0 14px 28px rgba(9, 1, 87, 0.25), 0 20px 20px rgba(0, 58, 247, 0.22);
-  transition: all 0.4s linear;
 }
 .user-card b{
     color: rgb(175, 174, 177);
 }
-.user-card i{
-  color: rgb(229, 228, 231);
-  padding-right: 10px;
-}
-.user-card b:hover{
-  color:#cea1ecd7;
-}
-.user-card i:hover{
-  color:#cea1ecd7;
-}
+
+  
   .user-card li{
    margin: 10px; 
 }
@@ -76,11 +60,13 @@
    background: none;
    border: none;
    color: rgb(147, 146, 150);
-   font-size: 1.3rem;
+   font-size: 1.5rem;
    cursor: pointer;
 }
 
-
+.container-btn button:hover{
+    color: rgb(178, 178, 180);
+ }
 
  @media only screen and (min-width: 768px) {
      .users-container{
@@ -89,9 +75,10 @@
          flex-direction: row;
      }
      .users-container{
+       flex-direction: row;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-       padding: 1em 80px 0px 80px;
+       padding: 30px;
       }
       .users-container ul{
        list-style: none;

@@ -16,8 +16,8 @@ const UsersList = ({users, removeUsers, selectUsers,setShowForm, showForm}) => {
                                
                                 <li><b>First Name: </b>{user.first_name}</li>
                                 <li><b>Last Name: </b>{user.last_name}</li>
-                                <li><i className="fa-solid fa-envelope"></i>{user.email}</li>
-                                <li><i className="fa-solid fa-cake-candles"></i>{user.birthday}</li>
+                                <li><b>Email: </b>{user.email}</li>
+                                <li><b>Birthday: </b>{user.birthday}</li>
                                 <div className='container-btn'>
                                     <button onClick={()=>removeUsers(user.id)}><i className="fa-solid fa-trash-can"></i></button>
                                     <button onClick={()=>{

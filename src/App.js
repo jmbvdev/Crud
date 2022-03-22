@@ -10,7 +10,7 @@ function App() {
   const [users, setUsers]= useState([])
   const[usersSelected, setUsersSelected]= useState(null)
   const[showForm, setShowForm]=useState(false)
- 
+
 
   //------------Get Users-----------------
 
@@ -29,7 +29,7 @@ function App() {
     axios.post("https://users-crud1.herokuapp.com/users/", user)
     .then(()=>{
       getUsers()
-      setUsersSelected(null)
+     
     })
   }
 
