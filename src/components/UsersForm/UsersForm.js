@@ -1,62 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import "../UsersForm/form.css"
 
 const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
-
-    const[firstName, setFirstName]= useState("")
-    const [lastName, setLastName]= useState("")
-    const[email, setEmail]= useState("")
-    const[password, setPassword]= useState("")
-    const[date, setDate]= useState("")
+    
+    const {register, handleSubmit,reset}= useForm()
+  
+    const defaultValues={first_name:"", last_name:"", email:"", password:"", date:""}
 
     useEffect(()=>{
         if (usersSelected) {
-            setFirstName(usersSelected.first_name)
-            setLastName(usersSelected.last_name)
-            setEmail(usersSelected.email)
-            setPassword(usersSelected.password)
-            setDate(usersSelected.birthday)
-        } else {
-            setFirstName("")
-            setLastName("")
-            setEmail("")
-            setPassword("")
-            setDate("")
+            reset(usersSelected)
+        } else{
+            reset(defaultValues)
         }
 
-    },[usersSelected])
+    },[usersSelected, reset])
 
-    const submit=e=>{
-        e.preventDefault()
-       const user ={
-           first_name: firstName,
-           last_name: lastName,
-           email,
-           password,
-           birthday:date
-       }
-       if (usersSelected) {
-           user.id= usersSelected.id
-           updateUsers(user)
-       }else{
-           addUsers(user)
-       }
+    const submit=user=>{
+        reset(defaultValues)
+        if (usersSelected) {
+            updateUsers(user)
+        } else {
+            addUsers(user)
+        }
     }
 
     return (
         <div className='form-container'>
             <div className='form-top'>
-                 <button onClick={()=>setShowForm(false)} className='close-btn'><i class="fa-solid fa-x"></i></button>
+                 <button onClick={()=>setShowForm(false)} className='close-btn'><i className="fa-solid fa-x"></i></button>
             </div>
-            <form onSubmit={submit}>
+            <form onSubmit={handleSubmit(submit)}>
                 <div className='input-container'>
                     <label htmlFor="firstName"></label>
                     <input
                     type="text" 
                     id='firstName'
                     placeholder='first Name'
-                    onChange={e=>setFirstName(e.target.value)}
-                    value={firstName}
+                    {...register("first_name")}
                     />
                 </div>
                 <div className='input-container'>
@@ -65,8 +47,7 @@ const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
                     type="text" 
                     id='lastName'
                     placeholder='last Name'
-                    onChange={e=>setLastName(e.target.value)}
-                    value={lastName}
+                    {...register("last_name")}
                     />
                 </div>
                 <div className='input-container'>
@@ -75,8 +56,7 @@ const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
                     type="text" 
                     id='email'
                     placeholder='email'
-                    onChange={e=>setEmail(e.target.value)}
-                    value={email}
+                    {...register("email")}
                     />
                 </div>
                 <div className='input-container'>
@@ -85,8 +65,7 @@ const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
                     type="password" 
                     id='password'
                     placeholder='password'
-                    onChange={e=>setPassword(e.target.value)}
-                    value={password}
+                    {...register("password")}
                     />
                 </div>
                 <div className='input-container'>
@@ -95,8 +74,7 @@ const UsersForm = ({addUsers, usersSelected, updateUsers, setShowForm}) => {
                     type="date" 
                     id='date'
                     placeholder='birthday'
-                    onChange={e=>setDate(e.target.value)}
-                    value={date}
+                    {...register("birthday")}
                     />
                 </div>
                 <button className='upload-btn'>upload</button>
